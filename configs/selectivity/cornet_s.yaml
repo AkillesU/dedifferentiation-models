@@ -1,0 +1,6 @@
+# Category selectivity of CORnet-S IT units on the localizer images (fixed within-block recurrence).
+model: cornet_s
+layer_paths: [module.IT.output]
+output_name: cornet_s_unit_selectivity
+# Readout-layer choice (layer_category_selectivity.py): block outputs
+candidate_layers: [module.V1.output, module.V2.output, module.V4.output, module.IT.output]

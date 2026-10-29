@@ -1,0 +1,11 @@
+# AlexNet: connection severing in block1, classifier_2 readout (Fig S1).
+model: alexnet
+model_dir: alexnet_c
+damage_type: connections
+damaged_area: block1
+damage_paths: [features.0]
+include_bias: false
+levels: [0, 21, 0.05]  # fraction of connections severed, 0 to 1
+simulations: 200
+readout_path: classifier.2
+readout_name: classifier_2

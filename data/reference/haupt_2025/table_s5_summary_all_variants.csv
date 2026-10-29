@@ -1,0 +1,13 @@
+analysis_variant,analysis_space,fmri_runs,scope,roi,preferred_category,n_comparisons,mean_younger,mean_older,younger_minus_older,retained_percent_ratio_of_means,relative_drop_percent_ratio_of_means,mean_pairwise_retained_percent,mean_pairwise_relative_drop_percent,mean_category_retained_percent_ratio_of_means,mean_category_relative_drop_percent_ratio_of_means,primary_analysis
+normalized_all_runs,normalized,all_20,category,FFA,face,3,0.3777666667,0.2739333333,0.1038333333,72.513897,27.486103,74.811953,25.188047,72.513897,27.486103,true
+normalized_all_runs,normalized,all_20,category,LOC,object,3,0.1825666667,0.0744666667,0.1081000000,40.788753,59.211247,37.151904,62.848096,40.788753,59.211247,true
+normalized_all_runs,normalized,all_20,category,PPA,place,3,0.2655000000,0.1202666667,0.1452333333,45.298180,54.701820,45.780718,54.219282,45.298180,54.701820,true
+normalized_all_runs,normalized,all_20,whole_model,ALL_ROIS,face_object_place,9,0.2752777778,0.1562222222,0.1190555556,56.750757,43.249243,52.581525,47.418475,52.866943,47.133057,true
+normalized_first_2_runs,normalized,first_2,category,FFA,face,3,0.0627333333,0.0401000000,0.0226333333,63.921360,36.078640,71.700223,28.299777,63.921360,36.078640,false
+normalized_first_2_runs,normalized,first_2,category,LOC,object,3,0.0341333333,0.0043666667,0.0297666667,12.792969,87.207031,4.868003,95.131997,12.792969,87.207031,false
+normalized_first_2_runs,normalized,first_2,category,PPA,place,3,0.0417333333,0.0136333333,0.0281000000,32.667732,67.332268,32.530300,67.469700,32.667732,67.332268,false
+normalized_first_2_runs,normalized,first_2,whole_model,ALL_ROIS,face_object_place,9,0.0462000000,0.0193666667,0.0268333333,41.919192,58.080808,36.366175,63.633825,36.460687,63.539313,false
+native_all_runs,native,all_20,category,FFA,face,3,0.2766666667,0.2127666667,0.0639000000,76.903614,23.096386,78.153296,21.846704,76.903614,23.096386,false
+native_all_runs,native,all_20,category,LOC,object,3,0.1559666667,0.0699000000,0.0860666667,44.817269,55.182731,41.062376,58.937624,44.817269,55.182731,false
+native_all_runs,native,all_20,category,PPA,place,3,0.1743333333,0.0707666667,0.1035666667,40.592734,59.407266,41.256425,58.743575,40.592734,59.407266,false
+native_all_runs,native,all_20,whole_model,ALL_ROIS,face_object_place,9,0.2023222222,0.1178111111,0.0845111111,58.229447,41.770553,53.490699,46.509301,54.104539,45.895461,false

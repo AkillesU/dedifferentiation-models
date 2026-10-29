@@ -1,0 +1,12 @@
+# CORnet-RT (5 time steps): neuron deletion in IT, IT readout (Fig S2, S7).
+model: cornet_rt
+time_steps: 5
+model_dir: cornet_rt5_c+b
+damage_type: units
+damaged_area: IT
+damage_paths: [module.IT.conv_input, module.IT.conv1]
+include_bias: true
+levels: [0, 21, 0.05]  # fraction of units (filters) deleted, 0 to 1
+simulations: 200
+readout_path: module.IT.output
+readout_name: IT

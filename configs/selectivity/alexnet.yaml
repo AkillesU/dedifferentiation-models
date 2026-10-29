@@ -1,0 +1,6 @@
+# Category selectivity of AlexNet units after the first fully connected layer's ReLU (classifier.2).
+model: alexnet
+layer_paths: [classifier.2]
+output_name: alexnet_unit_selectivity
+# Readout-layer choice (layer_category_selectivity.py): every ReLU after a convolutional or fully connected layer
+candidate_layers: [features.1, features.4, features.7, features.9, features.11, classifier.2, classifier.5]

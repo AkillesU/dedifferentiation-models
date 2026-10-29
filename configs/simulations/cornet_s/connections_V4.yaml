@@ -1,0 +1,11 @@
+# CORnet-S (block convolutions only; skip projections intact): connection severing in V4, IT readout (Fig S1).
+model: cornet_s
+model_dir: cornet_s4_c
+damage_type: connections
+damaged_area: V4
+damage_paths: [module.V4.conv_input, module.V4.conv1, module.V4.conv2, module.V4.conv3]
+include_bias: false
+levels: [0, 21, 0.05]  # fraction of connections severed, 0 to 1
+simulations: 200
+readout_path: module.IT.output
+readout_name: IT

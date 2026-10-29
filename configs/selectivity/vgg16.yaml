@@ -1,0 +1,7 @@
+# Category selectivity of VGG16 units after the second fully connected layer's ReLU (classifier.4).
+model: vgg16
+layer_paths: [classifier.4]
+output_name: vgg16_unit_selectivity
+# Readout-layer choice (layer_category_selectivity.py): every ReLU after a convolutional or fully connected layer
+candidate_layers: [features.1, features.3, features.6, features.8, features.11, features.13, features.15, features.18,
+                   features.20, features.22, features.25, features.27, features.29, classifier.1, classifier.4]

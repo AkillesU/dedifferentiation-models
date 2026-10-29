@@ -1,0 +1,12 @@
+# CORnet-RT (4 time steps): connection severing in V1, IT readout (Fig S1).
+model: cornet_rt
+time_steps: 4
+model_dir: cornet_rt4_c
+damage_type: connections
+damaged_area: V1
+damage_paths: [module.V1.conv_input, module.V1.conv1]
+include_bias: false
+levels: [0, 21, 0.05]  # fraction of connections severed, 0 to 1
+simulations: 200
+readout_path: module.IT.output
+readout_name: IT

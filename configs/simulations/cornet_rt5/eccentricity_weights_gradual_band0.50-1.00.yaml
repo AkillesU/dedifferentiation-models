@@ -1,0 +1,16 @@
+# CORnet-RT (5 time steps): peripheral V1 connection severing, retained fovea 0.5, IT readout (Fig 2e).
+model: cornet_rt
+time_steps: 5
+model_dir: cornet_rt5_all
+damage_type: eccentricity_weights_gradual
+damaged_area: V1
+include_bias: false
+levels: [0, 21, 0.05]  # maximum connection severing probability (p_max), 0 to 1
+simulations: 200
+readout_path: module.IT.output
+readout_name: IT
+eccentricity:
+  layer_path: module.V1.conv_input
+  band: [0.5, 1.0]
+  reverse: false
+  per_channel: true   # independent masks for every output channel

@@ -1,0 +1,47 @@
+# Figure 2b, 2c, and 2e (2a and 2d are schematics).
+# Needs data/differentiation/cornet_rt5_all.csv.gz (2e) and, for 2b and 2c, the outputs of
+#   python v1_gradient_analysis.py stats --config configs/gradients/cornet_rt5_top5.yaml
+# Run with: python run_plots.py configs/figures/figure_2.yaml
+
+plot_dir: plots/figure_2
+
+figures:
+  # 2b left: where in V1 each category's selective IT units are driven more than random units
+  - function: plot_gradient_delta_maps
+    parameters:
+      file_name: figure_2b_delta_maps
+      panels:
+        - {units: object, images: object, title: Avg. Objects}
+        - {units: animal, images: animal, title: Avg. Animals}
+        - {units: face, images: face, title: Avg. Faces}
+        - {units: place, images: place, title: Avg. Places}
+  # 2b right: example images with their Cliff's delta maps
+  - function: plot_gradient_overlays
+    parameters:
+      file_name: figure_2b_overlays
+      panels:
+        - {units: object, images: object, image: object12.jpg}
+        - {units: animal, images: animal, image: animal1.jpg}
+        - {units: face, images: face, image: face1.jpg}
+        - {units: place, images: place, image: place10.jpg}
+  # 2c: selective vs random gradient density by eccentricity band
+  - function: plot_eccentricity_bias
+    parameters:
+      file_name: figure_2c_eccentricity_bias
+      categories: [animal, object, place, face]
+      colours: {animal: "#009E73", object: "#E69F00", place: "#0072B2", face: "#CC79A7"}
+      markers: {animal: o, object: s, place: "^", face: D}
+  # 2e: category differentiation under peripheral V1 connection severing (retained fovea 0.5)
+  - function: plot_differentiation_curves
+    parameters:
+      file_name: figure_2e_peripheral_v1_severing
+      model_dir: cornet_rt5_all
+      damage_type: eccentricity_weights_gradual_band0.50-1.00
+      damage_areas: [V1]
+      readout_layer: IT
+      categories: [animal, face, object, place]
+      scaled_percent: true
+      title: Category differentiation under peripheral V1 degradation
+      xlabel: Maximum connection severing probability (p_max)
+      colours: {animal: "#00A087", face: "#D948A1", object: "#F39C12", place: "#3C78D8"}
+      markers: {animal: o, face: D, object: s, place: "^"}

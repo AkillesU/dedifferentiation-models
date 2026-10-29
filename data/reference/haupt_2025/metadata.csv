@@ -1,0 +1,19 @@
+field,value
+study,"Haupt, Garrett, and Cichy (2025), Healthy aging delays and dedifferentiates high-level visual representations"
+journal,"Current Biology 35, 2112-2127.e6"
+doi,10.1016/j.cub.2025.03.062
+source_table,Supplementary Table S5
+source_url,https://pure.mpg.de/rest/items/item_3621884/component/file_3662071/content
+score_definition,within-category pattern similarity minus between-category pattern similarity
+preferred_category_mapping,PPA=place; LOC=object; FFA=face
+primary_variant,normalized_all_runs
+primary_space,normalized
+primary_runs,all 20 fMRI task runs
+primary_selection_reason,Figure 6B reports normalized-space results averaged across all 20 runs to maximize signal-to-noise ratio
+sensitivity_variant_1,normalized_first_2_runs
+sensitivity_variant_1_reason,Included to closely replicate previous studies
+sensitivity_variant_2,native_all_runs
+sensitivity_variant_2_reason,Included as a spatial-normalization robustness analysis
+paper_inference,10000 one-tailed permutations with FDR correction
+younger_n,21
+older_n,21

@@ -1,0 +1,61 @@
+# Figure 1 b-d. Fig 1a is a schematic.
+# Needs data/differentiation/cornet_rt5_c.csv.gz and the outputs of
+#   python fit_haupt_damage_levels.py --config configs/stats/cornet_rt5_haupt.yaml
+#   python place_alignment_stats.py --config configs/stats/cornet_rt5_haupt.yaml
+# Run with: python run_plots.py configs/figures/figure_1.yaml
+
+plot_dir: plots/figure_1
+
+figures:
+  # b: overall differentiation for the intact model and whole-model damage at the human-matched levels
+  - function: plot_total_differentiation
+    parameters:
+      file_name: figure_1b_total_differentiation
+      model_dir: cornet_rt5_c
+      damage_area: All
+      readout_layer: IT
+      best_fit_table: stats/haupt_fits/cornet-rt_haupt-fit_descriptives_all-jobs.csv
+      human_table: stats/haupt_fits/cornet-rt_table-S1_human.csv
+      conditions:
+        - {damage_type: connections, damage_level: 0.0, label: Intact model, colour: "#4477AA", marker: o}
+        - {damage_type: connections, damage_level: best_fit, label: "{percent:g}% Connection severing", colour: "#EE6677", marker: s}
+        - {damage_type: noise, damage_level: best_fit, label: "SD={level:g} Neural noise", colour: "#228833", marker: "^"}
+
+  # c: overall differentiation in IT against damage severity for each damaged area
+  - function: plot_differentiation_curves
+    parameters: &area_curves
+      file_name: figure_1c_connections
+      model_dir: cornet_rt5_c
+      damage_type: connections
+      damage_areas: [V1, V2, V4, IT]
+      readout_layer: IT
+      categories: [total]
+      ylim: [-0.05, 0.25]
+      title: Connection severing
+      xlabel: Connections severed (fraction)
+      colours: {V1: "#4477AA", V2: "#EE6677", V4: "#228833", IT: "#AA3377"}
+      markers: {V1: o, V2: s, V4: "^", IT: D}
+  - function: plot_differentiation_curves
+    parameters:
+      <<: *area_curves
+      file_name: figure_1c_noise
+      damage_type: noise
+      title: Neural noise
+      xlabel: Standardized neural noise level
+
+  # d: category differentiation at the human-matched severing level, with place specificity index
+  - function: plot_category_panels
+    parameters:
+      file_name: figure_1d_category_panels
+      model_dir: cornet_rt5_c
+      readout_layer: IT
+      best_fit_table: stats/haupt_fits/cornet-rt_haupt-fit_descriptives_all-jobs.csv
+      human_table: stats/haupt_fits/cornet-rt_table-S1_human.csv
+      place_index_dir: stats/place_alignment
+      palette: {object: "#F39C12", place: "#3C78D8", face: "#D948A1", animal: "#00A087"}
+      panels:
+        - {damage_type: connections, damage_area: All, damage_level: best_fit, title: "Whole model {percent:g}%"}
+        - {damage_type: connections, damage_area: V1, damage_level: best_fit, title: "V1 - {percent:g}%"}
+        - {damage_type: connections, damage_area: V2, damage_level: best_fit, title: "V2 - {percent:g}%"}
+        - {damage_type: connections, damage_area: V4, damage_level: best_fit, title: "V4 - {percent:g}%"}
+        - {damage_type: connections, damage_area: IT, damage_level: best_fit, title: "IT - {percent:g}%"}

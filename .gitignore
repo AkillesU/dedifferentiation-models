@@ -1,0 +1,17 @@
+# Python caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Experimental stimuli: downloaded from OSF with download_stimuli.py, not redistributed
+stimuli/*.jpg
+
+# Data from the Zenodo release or produced by the scripts (see README).
+# Leading "/" anchors a pattern to the repository root, so configs/stats/ stays tracked.
+/downloads/
+/data/simulations/
+/data/differentiation/
+/data/it2v1_gradients/
+/unit_selectivity/
+/stats/
+/plots/

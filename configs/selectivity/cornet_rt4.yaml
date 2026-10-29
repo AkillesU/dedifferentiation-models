@@ -1,0 +1,7 @@
+# Category selectivity of CORnet-RT (4 time steps; feedforward for the IT readout) IT units on the localizer images.
+model: cornet_rt
+time_steps: 4
+layer_paths: [module.IT.output]
+output_name: cornet_rt4_unit_selectivity
+# Readout-layer choice (layer_category_selectivity.py): block outputs
+candidate_layers: [module.V1.output, module.V2.output, module.V4.output, module.IT.output]

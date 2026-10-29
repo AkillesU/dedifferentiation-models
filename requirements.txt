@@ -1,0 +1,15 @@
+# Python 3.10. Versions are those used to produce and check the manuscript results.
+# On Linux, pip installs the CUDA build of torch. On Windows and macOS it installs the CPU build; for a
+# GPU on Windows, first install torch and torchvision from https://download.pytorch.org/whl/cu128 (see README).
+numpy==2.2.5
+pandas==2.3.3
+scipy==1.15.3
+matplotlib==3.10.9
+PyYAML==6.0.3
+pillow==11.1.0
+tqdm==4.67.1
+torch==2.7.1
+torchvision==0.22.1
+# Official CORnet implementation, at the commit used for the manuscript
+CORnet @ git+https://github.com/dicarlolab/CORnet@d0cc17d4b34ad44dedb01683b70eafd15515adad
+pytest==8.3.5

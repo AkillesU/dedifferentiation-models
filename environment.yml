@@ -1,0 +1,13 @@
+# Conda environment for the dedifferentiation-models code.
+#   conda env create -f environment.yml
+#   conda activate dedifferentiation
+# Package versions are pinned in requirements.txt.
+name: dedifferentiation
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  - git
+  - pip:
+      - -r requirements.txt

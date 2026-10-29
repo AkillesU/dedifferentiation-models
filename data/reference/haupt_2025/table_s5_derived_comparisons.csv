@@ -1,0 +1,28 @@
+source_row,analysis_variant,analysis_space,fmri_runs,roi,preferred_category,comparison_category,comparison_reported,mean_younger_reported,mean_older_reported,p_value_reported,mean_younger,mean_older,p_value,younger_minus_older,older_div_younger,retained_percent,relative_drop_fraction,relative_drop_percent,primary_analysis
+1,normalized_all_runs,normalized,all_20,PPA,place,face,PPA: P vs. F,0.4552,0.2019,8 x 10^-4,0.4552,0.2019,0.0008,0.2533000000,0.4435413005,44.354130,0.5564586995,55.645870,true
+2,normalized_all_runs,normalized,all_20,PPA,place,animal,PPA: P vs. A,0.1788,0.0855,0.0050,0.1788,0.0855,0.0050,0.0933000000,0.4781879195,47.818792,0.5218120805,52.181208,true
+3,normalized_all_runs,normalized,all_20,PPA,place,object,PPA: P vs. O,0.1625,0.0734,0.0027,0.1625,0.0734,0.0027,0.0891000000,0.4516923077,45.169231,0.5483076923,54.830769,true
+4,normalized_all_runs,normalized,all_20,LOC,object,face,LOC: O vs. F,0.2676,0.1097,8 x 10^-4,0.2676,0.1097,0.0008,0.1579000000,0.4099402093,40.994021,0.5900597907,59.005979,true
+5,normalized_all_runs,normalized,all_20,LOC,object,animal,LOC: O vs. A,0.0882,0.0183,0.0049,0.0882,0.0183,0.0049,0.0699000000,0.2074829932,20.748299,0.7925170068,79.251701,true
+6,normalized_all_runs,normalized,all_20,LOC,object,place,LOC: O vs. P,0.1919,0.0954,0.0028,0.1919,0.0954,0.0028,0.0965000000,0.4971339239,49.713392,0.5028660761,50.286608,true
+7,normalized_all_runs,normalized,all_20,FFA,face,animal,FFA: F vs. A,0.2045,0.1711,0.1994,0.2045,0.1711,0.1994,0.0334000000,0.8366748166,83.667482,0.1633251834,16.332518,true
+8,normalized_all_runs,normalized,all_20,FFA,face,place,FFA: F vs. P,0.5218,0.3535,0.0238,0.5218,0.3535,0.0238,0.1683000000,0.6774626294,67.746263,0.3225373706,32.253737,true
+9,normalized_all_runs,normalized,all_20,FFA,face,object,FFA: F vs. O,0.4070,0.2972,0.0591,0.4070,0.2972,0.0591,0.1098000000,0.7302211302,73.022113,0.2697788698,26.977887,true
+10,normalized_first_2_runs,normalized,first_2,PPA,place,face,PPA: P vs. F,0.0629,0.0205,6 x 10^-4,0.0629,0.0205,0.0006,0.0424000000,0.3259141494,32.591415,0.6740858506,67.408585,false
+11,normalized_first_2_runs,normalized,first_2,PPA,place,animal,PPA: P vs. A,0.0325,0.0124,0.0025,0.0325,0.0124,0.0025,0.0201000000,0.3815384615,38.153846,0.6184615385,61.846154,false
+12,normalized_first_2_runs,normalized,first_2,PPA,place,object,PPA: P vs. O,0.0298,0.0080,4 x 10^-4,0.0298,0.0080,0.0004,0.0218000000,0.2684563758,26.845638,0.7315436242,73.154362,false
+13,normalized_first_2_runs,normalized,first_2,LOC,object,face,LOC: O vs. F,0.0501,0.0045,1 x 10^-4,0.0501,0.0045,0.0001,0.0456000000,0.0898203593,8.982036,0.9101796407,91.017964,false
+14,normalized_first_2_runs,normalized,first_2,LOC,object,animal,LOC: O vs. A,0.0174,-0.0066,0.0021,0.0174,-0.0066,0.0021,0.0240000000,-0.3793103448,-37.931034,1.3793103448,137.931034,false
+15,normalized_first_2_runs,normalized,first_2,LOC,object,place,LOC: O vs. P,0.0349,0.0152,0.0232,0.0349,0.0152,0.0232,0.0197000000,0.4355300860,43.553009,0.5644699140,56.446991,false
+16,normalized_first_2_runs,normalized,first_2,FFA,face,animal,FFA: F vs. A,0.0316,0.0318,0.5100,0.0316,0.0318,0.5100,-0.0002000000,1.0063291139,100.632911,-0.0063291139,-0.632911,false
+17,normalized_first_2_runs,normalized,first_2,FFA,face,place,FFA: F vs. P,0.0897,0.0469,0.0048,0.0897,0.0469,0.0048,0.0428000000,0.5228539576,52.285396,0.4771460424,47.714604,false
+18,normalized_first_2_runs,normalized,first_2,FFA,face,object,FFA: F vs. O,0.0669,0.0416,0.0248,0.0669,0.0416,0.0248,0.0253000000,0.6218236173,62.182362,0.3781763827,37.817638,false
+19,native_all_runs,native,all_20,PPA,place,face,PPA: P vs. F,0.2943,0.1158,6 x 10^-4,0.2943,0.1158,0.0006,0.1785000000,0.3934760449,39.347604,0.6065239551,60.652396,false
+20,native_all_runs,native,all_20,PPA,place,animal,PPA: P vs. A,0.1274,0.0536,0.0039,0.1274,0.0536,0.0039,0.0738000000,0.4207221350,42.072214,0.5792778650,57.927786,false
+21,native_all_runs,native,all_20,PPA,place,object,PPA: P vs. O,0.1013,0.0429,0.0115,0.1013,0.0429,0.0115,0.0584000000,0.4234945706,42.349457,0.5765054294,57.650543,false
+22,native_all_runs,native,all_20,LOC,object,face,LOC: O vs. F,0.2264,0.1184,0.0055,0.2264,0.1184,0.0055,0.1080000000,0.5229681979,52.296820,0.4770318021,47.703180,false
+23,native_all_runs,native,all_20,LOC,object,animal,LOC: O vs. A,0.0598,0.0184,0.0323,0.0598,0.0184,0.0323,0.0414000000,0.3076923077,30.769231,0.6923076923,69.230769,false
+24,native_all_runs,native,all_20,LOC,object,place,LOC: O vs. P,0.1817,0.0729,4 x 10^-4,0.1817,0.0729,0.0004,0.1088000000,0.4012107870,40.121079,0.5987892130,59.878921,false
+25,native_all_runs,native,all_20,FFA,face,animal,FFA: F vs. A,0.1571,0.1318,0.2059,0.1571,0.1318,0.2059,0.0253000000,0.8389560789,83.895608,0.1610439211,16.104392,false
+26,native_all_runs,native,all_20,FFA,face,place,FFA: F vs. P,0.3773,0.2837,0.0681,0.3773,0.2837,0.0681,0.0936000000,0.7519215478,75.192155,0.2480784522,24.807845,false
+27,native_all_runs,native,all_20,FFA,face,object,FFA: F vs. O,0.2956,0.2228,0.0974,0.2956,0.2228,0.0974,0.0728000000,0.7537212449,75.372124,0.2462787551,24.627876,false

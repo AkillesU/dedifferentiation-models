@@ -1,0 +1,42 @@
+# Comparison of CORnet-RT (5 time steps) dedifferentiation with older adults (Haupt et al., 2025).
+# Damage: connection severing and weight noise, whole model and each area, IT readout, top 5% units.
+# Run in order (after compute_differentiation.py or the data download):
+#   python fit_haupt_damage_levels.py --config configs/stats/cornet_rt5_haupt.yaml   # Table S1, human-matched levels
+#   python place_alignment_stats.py --config configs/stats/cornet_rt5_haupt.yaml     # Table S2, Fig 1d and S3 statistics
+
+haupt_fit:
+  defaults: &haupt_defaults
+    model: cornet-rt
+    model_dir: cornet_rt5_c
+    activation_layer: IT
+    selectivity_fraction: 0.05
+    human_csv: data/reference/haupt_2025/haupt2025_fig6B_derived.csv
+    human_value_column: value_moment_matched
+    # Shift each digitised cell to its published Table S5 mean
+    center_on_table_s5: true
+    table_s5_csv: data/reference/haupt_2025/table_s5_raw.csv
+    baseline_level: 0.0
+    expected_simulations: 200
+    # 100,000 keeps the human CI bounds stable to about 0.1 percentage points
+    n_bootstrap: 100000
+    seed: 12345
+    alpha: 0.05
+    tolerance: 1.0e-8
+    output_dir: stats/haupt_fits
+  jobs:
+    - damage_type: noise
+      damage_layers: [All, V1, V2, V4, IT]
+    - damage_type: connections
+      damage_layers: [All, V1, V2, V4, IT]
+
+place_alignment:
+  defaults:
+    <<: *haupt_defaults
+    # Regress progress on levels up to the first that reaches the human overall drop
+    trend_window: matched
+    output_dir: stats/place_alignment
+  jobs:
+    - damage_type: noise
+      damage_layers: [All, V1, V2, V4, IT]
+    - damage_type: connections
+      damage_layers: [All, V1, V2, V4, IT]

@@ -1,0 +1,28 @@
+source_row,analysis_variant,analysis_space,fmri_runs,roi,preferred_category,comparison_category,comparison_reported,mean_younger_reported,mean_older_reported,p_value_reported,mean_younger,mean_older,p_value
+1,normalized_all_runs,normalized,all_20,PPA,place,face,PPA: P vs. F,0.4552,0.2019,8 x 10^-4,0.4552,0.2019,0.0008
+2,normalized_all_runs,normalized,all_20,PPA,place,animal,PPA: P vs. A,0.1788,0.0855,0.0050,0.1788,0.0855,0.0050
+3,normalized_all_runs,normalized,all_20,PPA,place,object,PPA: P vs. O,0.1625,0.0734,0.0027,0.1625,0.0734,0.0027
+4,normalized_all_runs,normalized,all_20,LOC,object,face,LOC: O vs. F,0.2676,0.1097,8 x 10^-4,0.2676,0.1097,0.0008
+5,normalized_all_runs,normalized,all_20,LOC,object,animal,LOC: O vs. A,0.0882,0.0183,0.0049,0.0882,0.0183,0.0049
+6,normalized_all_runs,normalized,all_20,LOC,object,place,LOC: O vs. P,0.1919,0.0954,0.0028,0.1919,0.0954,0.0028
+7,normalized_all_runs,normalized,all_20,FFA,face,animal,FFA: F vs. A,0.2045,0.1711,0.1994,0.2045,0.1711,0.1994
+8,normalized_all_runs,normalized,all_20,FFA,face,place,FFA: F vs. P,0.5218,0.3535,0.0238,0.5218,0.3535,0.0238
+9,normalized_all_runs,normalized,all_20,FFA,face,object,FFA: F vs. O,0.4070,0.2972,0.0591,0.4070,0.2972,0.0591
+10,normalized_first_2_runs,normalized,first_2,PPA,place,face,PPA: P vs. F,0.0629,0.0205,6 x 10^-4,0.0629,0.0205,0.0006
+11,normalized_first_2_runs,normalized,first_2,PPA,place,animal,PPA: P vs. A,0.0325,0.0124,0.0025,0.0325,0.0124,0.0025
+12,normalized_first_2_runs,normalized,first_2,PPA,place,object,PPA: P vs. O,0.0298,0.0080,4 x 10^-4,0.0298,0.0080,0.0004
+13,normalized_first_2_runs,normalized,first_2,LOC,object,face,LOC: O vs. F,0.0501,0.0045,1 x 10^-4,0.0501,0.0045,0.0001
+14,normalized_first_2_runs,normalized,first_2,LOC,object,animal,LOC: O vs. A,0.0174,-0.0066,0.0021,0.0174,-0.0066,0.0021
+15,normalized_first_2_runs,normalized,first_2,LOC,object,place,LOC: O vs. P,0.0349,0.0152,0.0232,0.0349,0.0152,0.0232
+16,normalized_first_2_runs,normalized,first_2,FFA,face,animal,FFA: F vs. A,0.0316,0.0318,0.5100,0.0316,0.0318,0.5100
+17,normalized_first_2_runs,normalized,first_2,FFA,face,place,FFA: F vs. P,0.0897,0.0469,0.0048,0.0897,0.0469,0.0048
+18,normalized_first_2_runs,normalized,first_2,FFA,face,object,FFA: F vs. O,0.0669,0.0416,0.0248,0.0669,0.0416,0.0248
+19,native_all_runs,native,all_20,PPA,place,face,PPA: P vs. F,0.2943,0.1158,6 x 10^-4,0.2943,0.1158,0.0006
+20,native_all_runs,native,all_20,PPA,place,animal,PPA: P vs. A,0.1274,0.0536,0.0039,0.1274,0.0536,0.0039
+21,native_all_runs,native,all_20,PPA,place,object,PPA: P vs. O,0.1013,0.0429,0.0115,0.1013,0.0429,0.0115
+22,native_all_runs,native,all_20,LOC,object,face,LOC: O vs. F,0.2264,0.1184,0.0055,0.2264,0.1184,0.0055
+23,native_all_runs,native,all_20,LOC,object,animal,LOC: O vs. A,0.0598,0.0184,0.0323,0.0598,0.0184,0.0323
+24,native_all_runs,native,all_20,LOC,object,place,LOC: O vs. P,0.1817,0.0729,4 x 10^-4,0.1817,0.0729,0.0004
+25,native_all_runs,native,all_20,FFA,face,animal,FFA: F vs. A,0.1571,0.1318,0.2059,0.1571,0.1318,0.2059
+26,native_all_runs,native,all_20,FFA,face,place,FFA: F vs. P,0.3773,0.2837,0.0681,0.3773,0.2837,0.0681
+27,native_all_runs,native,all_20,FFA,face,object,FFA: F vs. O,0.2956,0.2228,0.0974,0.2956,0.2228,0.0974

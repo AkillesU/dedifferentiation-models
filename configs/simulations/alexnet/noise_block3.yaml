@@ -1,0 +1,11 @@
+# AlexNet: neural noise in block3, classifier_2 readout (Fig S1).
+model: alexnet
+model_dir: alexnet_c
+damage_type: noise
+damaged_area: block3
+damage_paths: [features.6]
+include_bias: false
+levels: [0, 31, 0.1]  # noise SD in multiples of each layer's weight SD, 0 to 3
+simulations: 200
+readout_path: classifier.2
+readout_name: classifier_2

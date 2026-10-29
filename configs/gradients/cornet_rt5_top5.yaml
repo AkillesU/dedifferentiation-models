@@ -1,0 +1,42 @@
+# IT-to-V1 gradient analysis of CORnet-RT (5 time steps), top 5% category-selective IT units.
+# Self analyses (units and images of the same category): Fig 2b and 2c. Cross analyses: Fig S4.
+# Run in order (the data release contains the gradients, so the first step can be skipped):
+#   python v1_gradient_analysis.py gradients --config configs/gradients/cornet_rt5_top5.yaml
+#   python v1_gradient_analysis.py stats --config configs/gradients/cornet_rt5_top5.yaml
+
+v1_gradients:
+  defaults:
+    model: cornet_rt
+    time_steps: 5
+    selectivity_table: unit_selectivity/cornet_rt5_unit_selectivity.csv.gz
+    readout_layer: IT
+    top_fraction: 0.05
+    n_random_sets: 100
+    # Seed of random.Random for the random IT unit sets; the same sets are used in every analysis
+    random_seed: 1234
+    image_dir: stimuli
+    gradient_dir: data/it2v1_gradients
+    stats_dir: stats/it2v1
+    n_bands: 12
+    # Bootstrap draws (images and random sets resampled independently) for the 95% CIs
+    n_bootstrap: 10000
+    seed: 0
+    # IT units (image copies) per backward pass; lower it if the GPU runs out of memory
+    chunk_size: 64
+  jobs:
+    - {units: animal, images: animal}
+    - {units: face, images: face}
+    - {units: object, images: object}
+    - {units: place, images: place}
+    - {units: animal, images: face}
+    - {units: animal, images: object}
+    - {units: animal, images: place}
+    - {units: face, images: animal}
+    - {units: face, images: object}
+    - {units: face, images: place}
+    - {units: object, images: animal}
+    - {units: object, images: face}
+    - {units: object, images: place}
+    - {units: place, images: animal}
+    - {units: place, images: face}
+    - {units: place, images: object}

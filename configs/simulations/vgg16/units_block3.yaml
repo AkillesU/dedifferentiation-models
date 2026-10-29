@@ -1,0 +1,11 @@
+# VGG16: neuron deletion in block3, classifier_4 readout (Fig S1).
+model: vgg16
+model_dir: vgg16_c+b
+damage_type: units
+damaged_area: block3
+damage_paths: [features.10, features.12, features.14]
+include_bias: true
+levels: [0, 21, 0.05]  # fraction of units (filters) deleted, 0 to 1
+simulations: 200
+readout_path: classifier.4
+readout_name: classifier_4

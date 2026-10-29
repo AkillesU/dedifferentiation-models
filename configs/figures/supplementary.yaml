@@ -1,0 +1,195 @@
+# Supplementary Figures S1-S8.
+# Needs the differentiation tables in data/differentiation/ and the outputs of
+#   python place_alignment_stats.py --config configs/stats/cornet_rt5_haupt.yaml   # Fig S3
+#   python v1_gradient_analysis.py stats --config configs/gradients/cornet_rt5_top5.yaml   # Fig S4
+# Run with: python run_plots.py configs/figures/supplementary.yaml
+# One figure only:  python run_plots.py configs/figures/supplementary.yaml --only figure_S2_neuron_deletion
+
+plot_dir: plots/supplementary
+
+area_colours: &area_colours {V1: "#4477AA", V2: "#EE6677", V4: "#228833", IT: "#AA3377"}
+area_markers: &area_markers {V1: o, V2: s, V4: "^", IT: D}
+category_colours: &category_colours {animal: "#00A087", face: "#D948A1", object: "#F39C12", place: "#3C78D8"}
+category_markers: &category_markers {animal: o, face: D, object: s, place: "^"}
+
+figures:
+  # S1: AUC loss after early, middle, and late damage in five further models
+  - function: plot_damage_group_auc
+    parameters:
+      file_name: figure_S1_damage_groups
+      models:
+        - model: CORnet-RT (4 steps)
+          marker: o
+          readout_layer: IT
+          damage_areas: [V1, V2, V4, IT]
+          model_dirs: {connections: cornet_rt4_c, noise: cornet_rt4_c, units: cornet_rt4_c+b}
+        # Standard CORnet-S (fixed within-block recurrence); block convolutions damaged, skip projections intact
+        - model: CORnet-S
+          marker: s
+          readout_layer: IT
+          damage_areas: [V1, V2, V4, IT]
+          model_dirs: {connections: cornet_s4_c, noise: cornet_s4_c, units: cornet_s4_c+b}
+        - model: AlexNet
+          marker: D
+          readout_layer: classifier_2
+          damage_areas: [block1, block2, block3, block4, block5]
+          model_dirs: {connections: alexnet_c, noise: alexnet_c, units: alexnet_c+b}
+        - model: VGG16
+          marker: v
+          readout_layer: classifier_4
+          damage_areas: [block1, block2, block3, block4, block5]
+          model_dirs: {connections: vgg16_c, noise: vgg16_c, units: vgg16_c+b}
+
+  # S2: neuron deletion in CORnet-RT
+  - function: plot_differentiation_curves
+    parameters: &units_top5
+      file_name: figure_S2_neuron_deletion
+      model_dir: cornet_rt5_c+b
+      damage_type: units
+      damage_areas: [V1, V2, V4, IT]
+      readout_layer: IT
+      categories: [total]
+      ylim: [-0.05, 0.25]
+      title: CORnet-RT - Neuron deletion
+      xlabel: Neurons deleted (fraction)
+      colours: *area_colours
+      markers: *area_markers
+
+  # S3: progress towards the human level under connection severing
+  - function: plot_place_progress_panels
+    parameters:
+      file_name: figure_S3_place_progress
+      damage_type: connections
+      palette: {object: "#F39C12", place: "#3C78D8", face: "#D948A1"}
+      panels:
+        - {damage_area: All, title: Whole model}
+        - {damage_area: V1, title: V1}
+        - {damage_area: V2, title: V2}
+        - {damage_area: V4, title: V4}
+        - {damage_area: IT, title: IT}
+
+  # S4: V1 Cliff's delta maps of each category-selective IT group on all four image categories
+  - function: plot_gradient_delta_maps
+    parameters:
+      file_name: figure_S4_animal_units
+      panels:
+        - {units: animal, images: object, title: Object images}
+        - {units: animal, images: animal, title: Animal images}
+        - {units: animal, images: face, title: Face images}
+        - {units: animal, images: place, title: Place images}
+  - function: plot_gradient_delta_maps
+    parameters:
+      file_name: figure_S4_face_units
+      panels:
+        - {units: face, images: object, title: Object images}
+        - {units: face, images: animal, title: Animal images}
+        - {units: face, images: face, title: Face images}
+        - {units: face, images: place, title: Place images}
+  - function: plot_gradient_delta_maps
+    parameters:
+      file_name: figure_S4_object_units
+      panels:
+        - {units: object, images: object, title: Object images}
+        - {units: object, images: animal, title: Animal images}
+        - {units: object, images: face, title: Face images}
+        - {units: object, images: place, title: Place images}
+  - function: plot_gradient_delta_maps
+    parameters:
+      file_name: figure_S4_place_units
+      panels:
+        - {units: place, images: object, title: Object images}
+        - {units: place, images: animal, title: Animal images}
+        - {units: place, images: face, title: Face images}
+        - {units: place, images: place, title: Place images}
+
+  # S5: peripheral V1 neuron (activation) deletion, retained fovea 0.5
+  - function: plot_differentiation_curves
+    parameters: &eccentricity
+      file_name: figure_S5_peripheral_v1_neuron_deletion
+      model_dir: cornet_rt5_all
+      damage_type: eccentricity_gradual_band0.50-1.00
+      damage_areas: [V1]
+      readout_layer: IT
+      categories: [animal, face, object, place]
+      scaled_percent: true
+      title: Category differentiation under peripheral V1 neuron deletion
+      xlabel: Maximum neuron deletion probability (p_max)
+      colours: *category_colours
+      markers: *category_markers
+
+  # S6: foveal V1 connection severing, from 0.5 eccentricity inwards
+  - function: plot_differentiation_curves
+    parameters:
+      <<: *eccentricity
+      file_name: figure_S6_foveal_v1_severing
+      damage_type: eccentricity_weights_gradual_band0.00-0.50
+      title: Category differentiation under foveal V1 degradation
+      xlabel: Maximum connection severing probability (p_max)
+
+  # S7: top 10% and top 1% selective units
+  - function: plot_differentiation_curves
+    parameters: &connections_top10
+      file_name: figure_S7_top10_connections
+      model_dir: cornet_rt5_c
+      damage_type: connections
+      damage_areas: [V1, V2, V4, IT]
+      readout_layer: IT
+      categories: [total]
+      top_fraction: 0.10
+      ylim: [-0.05, 0.25]
+      title: Top-10% - Connection severing
+      xlabel: Connections severed (fraction)
+      colours: *area_colours
+      markers: *area_markers
+  - function: plot_differentiation_curves
+    parameters:
+      <<: *connections_top10
+      file_name: figure_S7_top10_noise
+      damage_type: noise
+      title: Top-10% - Neural noise
+      xlabel: Standardized neural noise level
+  - function: plot_differentiation_curves
+    parameters:
+      <<: *units_top5
+      file_name: figure_S7_top10_units
+      top_fraction: 0.10
+      title: Top-10% - Neuron deletion
+  - function: plot_differentiation_curves
+    parameters:
+      <<: *connections_top10
+      file_name: figure_S7_top1_connections
+      top_fraction: 0.01
+      ylim: [-0.05, 0.4]
+      title: Top-1% - Connection severing
+  - function: plot_differentiation_curves
+    parameters:
+      <<: *connections_top10
+      file_name: figure_S7_top1_noise
+      damage_type: noise
+      top_fraction: 0.01
+      ylim: [-0.05, 0.4]
+      title: Top-1% - Neural noise
+      xlabel: Standardized neural noise level
+  - function: plot_differentiation_curves
+    parameters:
+      <<: *units_top5
+      file_name: figure_S7_top1_units
+      top_fraction: 0.01
+      ylim: [-0.05, 0.4]
+      title: Top-1% - Neuron deletion
+
+  # S8: peripheral V1 severing with retained fovea 0.1 and 0.3
+  - function: plot_differentiation_curves
+    parameters:
+      <<: *eccentricity
+      file_name: figure_S8_retained_fovea_0.1
+      damage_type: eccentricity_weights_gradual_band0.10-1.00
+      title: "Retained fovea: 0.1 eccentricity"
+      xlabel: Maximum connection severing probability (p_max)
+  - function: plot_differentiation_curves
+    parameters:
+      <<: *eccentricity
+      file_name: figure_S8_retained_fovea_0.3
+      damage_type: eccentricity_weights_gradual_band0.30-1.00
+      title: "Retained fovea: 0.3 eccentricity"
+      xlabel: Maximum connection severing probability (p_max)
